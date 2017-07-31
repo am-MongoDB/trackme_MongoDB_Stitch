@@ -1,0 +1,19 @@
+{
+  "name": "trackme_MongoDB",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": "http://localhost:3000/react",
+  "devDependencies": {
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "mongodb-stitch": "^0.0.20",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}

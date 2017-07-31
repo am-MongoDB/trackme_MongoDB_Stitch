@@ -1,0 +1,6 @@
+{"intents": [
+    {"intent": "WhereIntent"},
+    {"intent": "CountIntent"},
+    {"intent": "AMAZON.HelpIntent"},
+  ]
+}

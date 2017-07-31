@@ -1,0 +1,16 @@
+{
+  "name": "MongoDB-Alexa",
+  "description": "Access MongoDB from the Amazon Alexa app",
+  "author": "Andrew Morgan andrew.morgan@mongodb.com",
+  "version": "0.0.1",
+  "private": false,
+  "repository": "https://github.com/am-MongoDB/MongoDB-Alexa",
+  "scripts": {
+    "start": "",
+    "postinstall": ""
+  },
+  "dependencies": {
+    "alexa-sdk": "^1.0.7",
+    "request": "^2.79.0"
+  }
+}

@@ -1,0 +1,14 @@
+WhereIntent where is andrew
+WhereIntent where is he
+WhereIntent where am i
+WhereIntent where did he last check in
+WhereIntent where did Andrew last check in
+WhereIntent where did i last check in
+WhereIntent last check in
+
+CountIntent how many checkins
+CountIntent how many times have I checked in
+CountIntent how many times has Andrew checked in
+CountIntent how many times has he checked in
+CountIntent how many check ins
+CountIntent check in count

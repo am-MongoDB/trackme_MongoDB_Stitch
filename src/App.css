@@ -1,0 +1,103 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #589636;
+}
+
+.json {
+  font: 12px "Lucida Console", Menlo, monospace, Consolas;
+}
+
+.errorMessage {
+  font-weight: bold;
+  color: red;
+}
+
+.warningMessage {
+  color: brown;
+}
+.successMessage {
+  color: green;
+}
+
+.signin-button {
+  cursor:pointer;
+  display: inline-flex;
+  align-items:center;
+  &-text{
+    padding-left:10px;
+  }
+  margin-right:20px;
+  padding:10px;
+  border: 1px solid #ccc;
+  border-radius:5px;
+}
+
+.signin-button-text{
+  padding-left: 10px;
+}
+
+.facebook-signin-logo{
+  height: 18px;
+  width: 18px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAMAAABhTZc9AAAAM1BMVEU7V53////7/P33+Pvm6vPe4++erM9HYaPs7/bY3uu8xd6uutiXpstfd7BNZ6dGYKM+Wp8D8PpVAAAAS0lEQVQoz2MYIoCfh5OZkZkFuyQvCyMYYJVk52DEI8vGiE+WFSjBzY7LTUxAWT6cLgYbSnVZRiTAJIBPlhWvXi68smz4XTUqS6IsADRcAScdHoCmAAAAAElFTkSuQmCC);
+  background-size:18px 18px;
+}
+
+.logout {
+  font-size:.8em;
+  margin-left: 10px;
+}
+
+
+.profile-pic{
+  height:40px;
+  width:40px;
+  margin-right: 10px;
+}
+
+.login-header{
+  display: flex;
+  margin-bottom:25px;
+  align-items: center;
+  border-bottom:1px solid #ccc;
+  .login-text{
+    color:#888;
+    .username{
+      color: black;
+      font-weight:bold;
+    }
+  }
+}
+
+.mapImg{
+  width: 500px;
+}

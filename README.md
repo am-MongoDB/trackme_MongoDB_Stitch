@@ -17,22 +17,12 @@ To make use of this client, the *trackme* application backend must be running on
 
 ```bash
 git clone https://github.com/am-MongoDB/trackme_MongoDB_Stitch.git
-cd MongoDB-Mongopop-ReactJS
+cd trackme_MongoDB_Stitch
 npm install
-export PORT=8008 # Any port that isn't being used by Mongopop or other local server
-npm start
 ```
 
-## Build for 'production'
+Edit the value of `appId` in `config.js`; replacing `trackme-xxxx` with the value for your Stitch app (find in the *Clients* tab in the [Stitch console](https://stitch.mongodb.com) after creating your MongoDB Stitch app).
 
 ```bash
-npm run build
+npm start
 ```
-
-And then copy the contents of the `build` directory to somewhere rootable on your 'production' web server.
-
-Browse to `http://localhost:3000/react` (or to the IP address or hostname specified in `public/app/app.component.ts`).
-
-## Usage (in 'production' mode)
-
-Run [Mongopop](https://github.com/am-MongoDB/Mongopop "Tool to add bulk data to MongoDB as well as sample it, count documents, and apply bulk changes") and browse to `http://localhost:3000/react`

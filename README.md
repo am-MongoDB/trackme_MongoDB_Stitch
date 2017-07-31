@@ -1,6 +1,7 @@
 # TrackMe – a checkin app based on MongoDB Stitch
 
 *Monday, 31 July 2017*
+
 **Not for production**
 
 Refer to [Building a checkin app with MongoDB Stitch](https://www.mongodb.com/blog/post/building-a-checking-app-with-MongoDB-Stitch) for a more complete description of this app (together with instructions for configuring MongoDB Stitch to act as the backend).

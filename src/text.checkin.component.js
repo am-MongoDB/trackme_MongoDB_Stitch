@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 
-export class TextCheckin extends React.Component {
+export class TextCheckin 
+    extends React.Component {
 
   constructor(props) {
     super(props);
@@ -11,16 +12,18 @@ export class TextCheckin extends React.Component {
       textNumber: "+1xxxxxxxxxxxxxx"
     }
 
-    this.handleNumberChange=this.handleNumberChange.bind(this);
-    this.sendText=this.sendText.bind(this);
+    this.handleNumChange = 
+      this.handleNumChange.bind(this);
+    this.sendText = this.sendText.bind(this);
 
   }
 
   componentDidMount() {
   }
 
-  handleNumberChange(event) {
-    this.setState({textNumber: event.target.value})
+  handleNumChange(event) {
+    this.setState({
+      textNumber: event.target.value})
   }
 
   sendText(event) {
@@ -30,7 +33,8 @@ export class TextCheckin extends React.Component {
     let name = "Someone mysterious";
     let venue = "somewhere mysterious";
 
-    this.props.checkins.find({},{sort: {_id: -1}, limit: 1})
+    this.props.checkins.find({},
+      {sort: {_id: -1}, limit: 1})
     .then (
       response => {
         venue = response[0].venueName;
@@ -49,24 +53,34 @@ export class TextCheckin extends React.Component {
                   action: "send",
                   args: {
                     to: this.state.textNumber,
-                    from: "%%values.twilioNumber",
-                    body: name + " last cheked into " + venue
+                    from: 
+                      "%%values.twilioNumber",
+                    body: name + 
+                      " last cheked into " +
+                      venue
                   }
                 }
               ])
               .then(
                 response => {
-                    this.setState({success: "Text has been sent to " + this.state.textNumber});
-                    console.log("Text has been sent to " + this.state.textNumber);
+                  this.setState({success: 
+                    "Text has been sent to " +
+                    this.state.textNumber});
                 },
                 error => {
-                  this.setState({error: "Failed to send text: " + error});
-                  console.log({error: "Failed to send text: " + error});
+                  this.setState({error:
+                    "Failed to send text: " +
+                    error});
+                  console.log({error: 
+                    "Failed to send text: " + 
+                    error});
               })
         })
       },
         error => {
-        this.setState({error: "Failed to read the latest checkin: " + error})
+        this.setState({error: 
+          "Failed to read the latest checkin: "
+          + error})
         }
       )
   }
@@ -78,18 +92,20 @@ export class TextCheckin extends React.Component {
  render() {
     return (
       <div>
-        <h2>Send an SMS text with your latest checkin</h2>
+        <h2>Send an SMS text with your latest 
+        checkin</h2>
         <div>
           <label>
             Phone number to send text to: 
             <input type="text" size="50"
               value={this.state.textNumber}
-              onChange={this.handleNumberChange}
+              onChange={this.handleNumChange}
               onFocus={this.handleFocus}
             />
           </label><br/>
           <button onClick={this.sendText}>
-            {"Send text to " + this.state.textNumber}
+            {"Send text to " + 
+              this.state.textNumber}
           </button>
           <br/><br/>
           <span className="successMessage">

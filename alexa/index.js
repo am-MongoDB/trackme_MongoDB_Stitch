@@ -101,9 +101,6 @@ var handlers = {
                         "Mongo – Where's Andrew",
                         successString + ". Location URL: " + body.url + ". View venue: " + body.location + ".",
                         {   
-                            /*
-                            smallImageUrl: "https://lh3.googleusercontent.com/81tvpT59weJbOGWT9jQ8_9RtcGXKCcVv59BU7Wl6PnS7okIgrS4iTCgwWpPQY2FRKw=w300",
-                            largeImageUrl: "https://lh3.googleusercontent.com/81tvpT59weJbOGWT9jQ8_9RtcGXKCcVv59BU7Wl6PnS7okIgrS4iTCgwWpPQY2FRKw=w300" */
                             smallImageUrl: imgURL,
                             largeImageUrl: imgURL
                         }

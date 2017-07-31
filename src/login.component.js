@@ -6,21 +6,26 @@ export class Login extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {userData:null}
+    this.state = {
+      userData: null
+    }
 
-    this.handleLoginChange=this.handleLoginChange.bind(this);
+    this.handleLoginChange = 
+      this.handleLoginChange.bind(this);
   }
 
   componentDidMount() {
     this.props.stitchClient.userProfile()
     .then(
-      userData=>{
-        if (userData.data !== this.state.userData) {
-          this.setState({userData:userData.data});
+      userData => {
+        if (userData.data !== 
+            this.state.userData) {
+          this.setState({userData:
+            userData.data});
           this.handleLoginChange(userData);        
         }
       },
-      error=>{
+      error => {
         // User hasn't authenticated yet
       })
   }
@@ -28,60 +33,73 @@ export class Login extends React.Component {
   handleLoginChange(userData) {
     if (userData != null)
     {
-      // this.setState({loggedIn: true});
       this.props.onLoginChange(true);
-      // Write the latest user data to the database. ZXZX is the filter actually
-      // needed? owner_id: this.props.stitchClient.authedId()
+
+      // We don't need to identify the user in
+      // the query as the pipeline's filter
+      // will handle that.
       this.props.userCollection.updateOne(
-        {},
+        {},  /* We don't need to identify the 
+              user in the query as the 
+              pipeline's filter will handle
+              that.*/
         { 
           $set: {
-            owner_id: this.props.stitchClient.authedId(),
+            owner_id: 
+            this.props.stitchClient.authedId(),
             userData: userData.data
           }
         },
         {upsert: true})
       .then(
-        result=>{console.log("Successfully updated user document")},
+        result=>{},
         error=>{console.log("Error: " + error)}
         );
     } else {
-      // this.setState({loggedIn: false});
       this.props.onLoginChange(false);
     }
 
   }
 
+  logout() {
+    this.props.stitchClient.logout()
+    .then(() => location.reload());
+  }
+
  render() {
-    // let authed = !!this.props.stitchClient.authedId();
-    let logout = () => {
-      this.props.stitchClient.logout()
-      .then(() => location.reload());
-    }
 
     return (
       <div>
         {this.props.loggedIn
           ? <div className="login-header">
-              {this.state.userData && this.state.userData.picture
-                ? <img src={this.state.userData.picture} className="profile-pic" alt="mg shot"/>
+              {this.state.userData && 
+                  this.state.userData.picture
+                ? <img src={
+                  this.state.userData.picture}
+                  className="profile-pic"
+                  alt="mug shot"/>
                 : null}
               <span className="login-text">
                 <span className="username">
-                  {this.state.userData && this.state.userData.name ? this.state.userData.name : "?"}
+                  {this.state.userData && 
+                    this.state.userData.name 
+                    ? this.state.userData.name
+                    : "?"}
                 </span>
               </span>
               <div>
-                <a className="logout" href="#" onClick={() => logout()}>
+                <a className="logout" href="#"
+                  onClick={() => this.logout()}
+                >
                   sign out
                 </a>
               </div>
             </div>
-          : null}
-        {!this.props.loggedIn
-          ? <div className="login-links-panel">
+          : <div className="login-links-panel">
               <div
-                onClick={() => this.props.stitchClient.authWithOAuth("google")}
+                onClick={() => 
+                  this.props.stitchClient
+                    .authWithOAuth("google")}
                 className="signin-button"
               >
                 <svg
@@ -108,22 +126,31 @@ export class Login extends React.Component {
                       fill="#34A853"
                       d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
                     />
-                    <path fill="none" d="M0 0h48v48H0z" />
+                    <path fill="none" 
+                      d="M0 0h48v48H0z" />
                   </g>
                 </svg>
-                <span className="signin-button-text">Sign in with Google</span>
+                <span 
+                 className="signin-button-text"
+                >Sign in with Google</span>
               </div>
               <div
-                onClick={() => this.props.stitchClient.authWithOAuth("facebook")}
+                onClick={() => 
+                  this.props.stitchClient
+                  .authWithOAuth("facebook")}
                 className="signin-button"
               >
-                <div className="facebook-signin-logo" />
-                <span className="signin-button-text">
+                <div 
+                className="facebook-signin-logo"
+                />
+                <span 
+                 className="signin-button-text"
+                 >
                   Sign in with Facebook
                 </span>
               </div>
             </div>
-          : null}
+        }
       </div>
     );
   }

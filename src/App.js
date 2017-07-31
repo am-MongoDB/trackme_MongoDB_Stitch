@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { StitchClient } from 'mongodb-stitch';
 import { Login } from './login.component';
-import { Checkins } from './checkins.component';
-import { AddFriend } from './addfriend.component';
-import { TextCheckin } from './text.checkin.component';
+import { Checkins } from 
+                    './checkins.component';
+import { AddFriend } from 
+                    './addfriend.component';
+import { TextCheckin } from 
+                    './text.checkin.component';
 import config from './config';
 
 
@@ -22,11 +25,16 @@ class Trackme extends React.Component {
     }
 
     let options = {};
-    this.stitchClient = new StitchClient(this.appId, options);
-    this.db = this.stitchClient.service("mongodb", "mongodb-atlas").db("trackme");
-    this.checkins = this.db.collection("checkins");
+    this.stitchClient = new StitchClient(
+      this.appId, options);
+    this.db = 
+      this.stitchClient.service("mongodb",
+        "mongodb-atlas").db("trackme");
+    this.checkins = 
+      this.db.collection("checkins");
     this.users = this.db.collection("users");
-    this.handleLoginChange=this.handleLoginChange.bind(this);
+    this.handleLogChange = 
+      this.handleLogChange.bind(this);
 
   }
 
@@ -34,7 +42,7 @@ class Trackme extends React.Component {
 
   }
 
-  handleLoginChange(loggedIn) {
+  handleLogChange(loggedIn) {
     this.setState({loggedIn: loggedIn})
   }
 
@@ -43,11 +51,12 @@ class Trackme extends React.Component {
       <div>
         <Login
           stitchClient={this.stitchClient}
-          onLoginChange={this.handleLoginChange}
+          onLoginChange={this.handleLogChange}
           userCollection={this.users}
           loggedIn={this.state.loggedIn}
         />
-        <h1>Welcome to TrackMe - built with MongoDB Stitch</h1>
+        <h1>Welcome to TrackMe - built with 
+        MongoDB Stitch</h1>
         {this.state.loggedIn ? (
           <div>
             <AddFriend

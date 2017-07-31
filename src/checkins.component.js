@@ -17,44 +17,58 @@ export class Checkins extends React.Component {
 
   this.props.stitchClient
     .executePipeline([
-      builtins.namedPipeline('recentCheckins', {
-        number: 10
-      })])
+      builtins.namedPipeline('recentCheckins',
+      {number: 10})])
     .then(
       checkinData => {
-        this.setState({checkins: checkinData.result[0].map((checkin, index) => 
+        this.setState({checkins: checkinData
+          .result[0].map((checkin, index) => 
           <li key={index}>
-            <a href={checkin.url} target="_Blank">
-            {checkin.venueName}</a>
-             &nbsp;( {checkin.date} )
+            <a href={checkin.url} 
+              target="_Blank">
+            {checkin.venueName}</a> &nbsp;
+            ( {checkin.date} )
              <br/>
-             <img src={checkin.locationImg} className="mapImg" alt={"map of " + checkin.venueName}/>
+             <img src={checkin.locationImg} 
+              className="mapImg" 
+              alt={"map of " + 
+                checkin.venueName}/>
           </li>
         )})
       },
       error => {
-        console.log("Failed to fetch checkin data: "
+        console.log(
+          "Failed to fetch checkin data: "
           + error)
     })
 
+    // This pipeline can be run asynchronously
+    // with the previous one as we don't care
+    // which completes first
     this.props.stitchClient
       .executePipeline([
-        builtins.namedPipeline('friendsCheckins', {
-          number: 10
-        })])
+        builtins.namedPipeline(
+          'friendsCheckins', {number: 10})])
       .then(
         friendData => {
-          this.setState({friendsCheckins: friendData.result[0].map((friend, friendIndex) =>
+          this.setState({friendsCheckins: 
+            friendData.result[0]
+            .map((friend, friendIndex) =>
             <li key={friendIndex}>
             <strong>{friend._id}</strong>
             <ul>
             {friend.checkins.map((checkin) =>
               <li>
-                <a href={checkin.url} target="_Blank">
+                <a href={checkin.url} 
+                  target="_Blank">
                   {checkin.venueName}</a>
                   &nbsp;( {checkin.date} )
                   <br/>
-                  <img src={checkin.locationImg} className="mapImg" alt={"map of " + checkin.venueName}/>
+                  <img src={
+                    checkin.locationImg} 
+                    className="mapImg" 
+                    alt={"map of " 
+                      + checkin.venueName}/>
               </li>
             )}
             </ul>
@@ -63,14 +77,10 @@ export class Checkins extends React.Component {
           })
         },
         error => {
-          console.log("Failed to fetch friends' data: "
+          console.log(
+            "Failed to fetch friends' data: "
             + error)
       })
-  }
-
-  displayCheckin(checkin) {
-    console.log(checkin.venueName);
-    return ("<li>Venue: " + checkin.venueName + "</li>")
   }
 
  render() {

@@ -63,7 +63,7 @@ export class Checkins extends React.Component {
           })
         },
         error => {
-          console.log("Failed to fetch friend's data: "
+          console.log("Failed to fetch friends' data: "
             + error)
       })
   }
@@ -81,7 +81,7 @@ export class Checkins extends React.Component {
         <ul>
           { this.state.checkins }
         </ul>
-        <h2>My friend's checkins</h2>
+        <h2>My friends' checkins</h2>
         <ul>
           { this.state.friendsCheckins }
         </ul>

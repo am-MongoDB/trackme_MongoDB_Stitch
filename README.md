@@ -21,7 +21,7 @@ cd trackme_MongoDB_Stitch
 npm install
 ```
 
-Edit the value of `appId` in `config.js`; replacing `trackme-xxxx` with the value for your Stitch app (find in the *Clients* tab in the [Stitch console](https://stitch.mongodb.com) after creating your MongoDB Stitch app).
+Edit the value of `appId` in `src/config.js`; replacing `trackme-xxxx` with the value for your Stitch app (find in the *Clients* tab in the [Stitch console](https://stitch.mongodb.com) after creating your MongoDB Stitch app).
 
 ```bash
 npm start

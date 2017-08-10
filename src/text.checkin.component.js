@@ -12,8 +12,7 @@ export class TextCheckin
       textNumber: "+1xxxxxxxxxxxxxx"
     }
 
-    this.handleNumChange = 
-      this.handleNumChange.bind(this);
+    this.handleNumChange = this.handleNumChange.bind(this);
     this.sendText = this.sendText.bind(this);
 
   }
@@ -33,8 +32,7 @@ export class TextCheckin
     let name = "Someone mysterious";
     let venue = "somewhere mysterious";
 
-    this.props.checkins.find({},
-      {sort: {_id: -1}, limit: 1})
+    this.props.checkins.find({}, {sort: {_id: -1}, limit: 1})
     .then (
       response => {
         venue = response[0].venueName;
@@ -53,34 +51,27 @@ export class TextCheckin
                   action: "send",
                   args: {
                     to: this.state.textNumber,
-                    from: 
-                      "%%values.twilioNumber",
-                    body: name + 
-                      " last cheked into " +
-                      venue
+                    from: "%%values.twilioNumber",
+                    body: name + " last checked into " + venue
                   }
                 }
               ])
               .then(
                 response => {
                   this.setState({success: 
-                    "Text has been sent to " +
-                    this.state.textNumber});
+                    "Text has been sent to " + this.state.textNumber});
                 },
                 error => {
                   this.setState({error:
-                    "Failed to send text: " +
-                    error});
+                    "Failed to send text: " + error});
                   console.log({error: 
-                    "Failed to send text: " + 
-                    error});
+                    "Failed to send text: " + error});
               })
         })
       },
         error => {
         this.setState({error: 
-          "Failed to read the latest checkin: "
-          + error})
+          "Failed to read the latest checkin: " + error})
         }
       )
   }
@@ -104,8 +95,7 @@ export class TextCheckin
             />
           </label><br/>
           <button onClick={this.sendText}>
-            {"Send text to " + 
-              this.state.textNumber}
+            {"Send text to " + this.state.textNumber}
           </button>
           <br/><br/>
           <span className="successMessage">

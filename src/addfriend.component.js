@@ -9,7 +9,7 @@ export class AddFriend extends React.Component
     this.state = {
       error: "",
       success: "",
-      friendsEmail: "someone@somedonain.com"
+      friendsEmail: "someone@somedomain.com"
     }
 
     this.handleEmailChange = 

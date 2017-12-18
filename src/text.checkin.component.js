@@ -29,51 +29,20 @@ export class TextCheckin
     this.setState({success: ""});
     this.setState({error: ""});
 
-    let name = "Someone mysterious";
-    let venue = "somewhere mysterious";
-
-    this.props.checkins.find({}, {sort: {_id: -1}, limit: 1})
+    this.props.stitchClient.executeFunction(
+      "sendText", this.state.textNumber)
     .then (
       response => {
-        venue = response[0].venueName;
-        this.props.stitchClient.userProfile()
-        .then (
-          response => {
-            name = response.data.name;
-          })
-        .then (
-          response => {
-
-            this.props.stitchClient
-              .executePipeline([
-                {
-                  service: "myTwilio",
-                  action: "send",
-                  args: {
-                    to: this.state.textNumber,
-                    from: "%%values.twilioNumber",
-                    body: name + " last checked into " + venue
-                  }
-                }
-              ])
-              .then(
-                response => {
-                  this.setState({success: 
-                    "Text has been sent to " + this.state.textNumber});
-                },
-                error => {
-                  this.setState({error:
-                    "Failed to send text: " + error});
-                  console.log({error: 
-                    "Failed to send text: " + error});
-              })
-        })
+       this.setState({success: 
+              "Text has been sent to " + this.state.textNumber});
       },
-        error => {
-        this.setState({error: 
-          "Failed to read the latest checkin: " + error})
-        }
-      )
+      error => {
+        this.setState({error:
+            "Failed to send text: " + error});
+        console.log({error: 
+            "Failed to send text: " + error});
+      }
+    );
   }
 
   handleFocus(event) {

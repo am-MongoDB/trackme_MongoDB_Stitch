@@ -1,4 +1,4 @@
-import { builtins } from 'mongodb-stitch';
+import 'mongodb-stitch';
 import React from 'react';
 import './App.css';
 
@@ -16,13 +16,11 @@ export class Checkins extends React.Component {
   componentDidMount() {
 
   this.props.stitchClient
-    .executePipeline([
-      builtins.namedPipeline('recentCheckins',
-      {number: 10})])
+    .executeFunction('recentCheckins', 10)
     .then(
       checkinData => {
         this.setState({checkins: checkinData
-          .result[0].map((checkin, index) => 
+          .map((checkin, index) => 
           <li key={index}>
             <a href={checkin.url} 
               target="_Blank">
@@ -46,19 +44,17 @@ export class Checkins extends React.Component {
     // with the previous one as we don't care
     // which completes first
     this.props.stitchClient
-      .executePipeline([
-        builtins.namedPipeline(
-          'friendsCheckins', {number: 10})])
+      .executeFunction('friendsCheckins', 5)
       .then(
         friendData => {
           this.setState({friendsCheckins: 
-            friendData.result[0]
+            friendData
             .map((friend, friendIndex) =>
             <li key={friendIndex}>
             <strong>{friend._id}</strong>
             <ul>
-            {friend.checkins.map((checkin) =>
-              <li>
+            {friend.checkins.map((checkin, checkinIndex) =>
+              <li key={checkinIndex}>
                 <a href={checkin.url} 
                   target="_Blank">
                   {checkin.venueName}</a>

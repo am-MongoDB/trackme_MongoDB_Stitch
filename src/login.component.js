@@ -34,15 +34,8 @@ export class Login extends React.Component {
     if (userData != null)
     {
       this.props.onLoginChange(true);
-
-      // We don't need to identify the user in
-      // the query as the pipeline's filter
-      // will handle that.
       this.props.userCollection.updateOne(
-        {},  /* We don't need to identify the 
-              user in the query as the 
-              pipeline's filter will handle
-              that.*/
+        {owner_id: this.props.stitchClient.authedId()},
         { 
           $set: {
             owner_id: 

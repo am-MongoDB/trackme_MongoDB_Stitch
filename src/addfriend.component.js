@@ -1,4 +1,4 @@
-import { builtins } from 'mongodb-stitch';
+import 'mongodb-stitch';
 import React from 'react';
 import './App.css';
 
@@ -35,24 +35,19 @@ export class AddFriend extends React.Component
     let email = this.state.friendsEmail;
 
     this.props.stitchClient
-      .executePipeline([
-        builtins.namedPipeline('alreadyAFriend'
-          , {friendsEmail: email})])
+      .executeFunction('alreadyAFriend', email)
       .then(
         response => {
-          if (response.result[0]) {
+          if (response) {
             this.setState({error: email + 
               " has already been included as a friend."});
           } else
           {
             this.props.stitchClient
-              .executePipeline([
-                builtins.namedPipeline(
-                  'addFriend', 
-                  {friendsEmail: email})])
+              .executeFunction('addFriend', email)
               .then(
                 response => {
-                  if (response.result[0]) {
+                  if (response.success) {
                     this.setState({success: 
                       email + 
                       " added as a friend; they can now see your checkins."});

@@ -8,6 +8,8 @@ import { AddFriend } from
                     './addfriend.component';
 import { TextCheckin } from 
                     './text.checkin.component';
+import { Popular } from 
+                    './popular.component';
 import config from './config';
 
 
@@ -65,6 +67,9 @@ class Trackme extends React.Component {
             <TextCheckin
               stitchClient={this.stitchClient}
               checkins={this.checkins}
+            />
+            <Popular
+              stitchClient={this.stitchClient}
             />
             <Checkins
               stitchClient={this.stitchClient}

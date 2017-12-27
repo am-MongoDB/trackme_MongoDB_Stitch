@@ -40,7 +40,7 @@ export class Checkins extends React.Component {
           + error)
     })
 
-    // This pipeline can be run asynchronously
+    // This function can be run asynchronously
     // with the previous one as we don't care
     // which completes first
     this.props.stitchClient

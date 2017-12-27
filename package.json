@@ -1,13 +1,13 @@
 {
   "name": "trackme_MongoDB",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "homepage": "http://localhost:3000/react",
   "devDependencies": {
     "react-scripts": "0.8.5"
   },
   "dependencies": {
-    "mongodb-stitch": "^0.0.20",
+    "mongodb-stitch": "^2.3.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },

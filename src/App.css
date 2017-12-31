@@ -101,3 +101,13 @@ a {
 .mapImg{
   width: 500px;
 }
+
+.chart rect {
+  fill: #589636;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}

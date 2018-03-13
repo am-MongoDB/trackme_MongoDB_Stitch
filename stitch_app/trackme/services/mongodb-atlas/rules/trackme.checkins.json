@@ -1,0 +1,60 @@
+{
+    "id": "596777354fdd1f3144a739bc",
+    "namespace": "trackme.checkins",
+    "filters": [
+        {
+            "match_expression": {},
+            "when": {
+                "%%true": true
+            }
+        }
+    ],
+    "fields": {
+        "owner_id": {
+            "valid": {
+                "%or": [
+                    {
+                        "%%prev": "%%user.id"
+                    },
+                    {
+                        "%%prev": {
+                            "%exists": false
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "other_fields": {},
+    "write": {
+        "%or": [
+            {
+                "%%prevRoot.owner_id": "%%user.id"
+            },
+            {
+                "%%prevRoot": {
+                    "%exists": {
+                        "$numberInt": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "read": {
+        "%or": [
+            {
+                "%%root.owner_id": "%%user.id"
+            },
+            {
+                "%%true": {
+                    "%function": {
+                        "arguments": [
+                            "%%root.owner_id"
+                        ],
+                        "name": "amITheirFriend"
+                    }
+                }
+            }
+        ]
+    }
+}

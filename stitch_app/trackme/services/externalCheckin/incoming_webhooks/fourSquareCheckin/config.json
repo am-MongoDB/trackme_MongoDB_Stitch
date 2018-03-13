@@ -1,0 +1,12 @@
+{
+    "id": "5a339da579e0faf986c928fc",
+    "name": "fourSquareCheckin",
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": "",
+    "options": {
+        "httpMethod": "POST",
+        "secret": "667",
+        "secretAsQueryParam": true
+    },
+    "respond_result": false
+}

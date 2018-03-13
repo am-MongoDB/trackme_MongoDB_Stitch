@@ -2,7 +2,7 @@
 // console https://stitch.mongodb.com/ under "Clients"
 
 var config = {
-	appId: "trackme-qhlyz"
+	appId: "TODO: Find this in your MongoDB Stitch console after you create or import the app"
 };
 
 module.exports = config;

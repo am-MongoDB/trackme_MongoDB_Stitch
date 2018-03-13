@@ -1,0 +1,8 @@
+{
+    "id": "5aa795e0b8b9989f01237736",
+    "name": "myTwilio",
+    "type": "twilio",
+    "config": {
+        "sid": "TODO: Get this from your Twilio console"
+    }
+}

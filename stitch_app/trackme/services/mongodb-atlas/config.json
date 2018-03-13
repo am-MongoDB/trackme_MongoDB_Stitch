@@ -1,0 +1,8 @@
+{
+    "id": "5aa795e0b8b9989f01237735",
+    "name": "mongodb-atlas",
+    "type": "mongodb-atlas",
+    "config": {
+        "clusterName": "TODO: This should be the name of your Atlas cluster - e.g. Cluster0"
+    }
+}

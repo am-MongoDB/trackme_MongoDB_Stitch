@@ -1,0 +1,11 @@
+{
+    "id": "596779544fdd1f3144a73bb1",
+    "name": "596779544fdd1f3144a73bb1",
+    "when": {
+        "%%args.url.host": {
+            "%in": [
+                "google.com"
+            ]
+        }
+    }
+}

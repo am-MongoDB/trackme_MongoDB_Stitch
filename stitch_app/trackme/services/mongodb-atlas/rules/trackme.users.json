@@ -1,0 +1,58 @@
+{
+    "id": "596cf3e44fdd1f3e8859a666",
+    "namespace": "trackme.users",
+    "filters": [
+        {
+            "match_expression": {},
+            "when": {
+                "%%true": true
+            }
+        }
+    ],
+    "fields": {
+        "owner_id": {
+            "read": {},
+            "valid": {
+                "%or": [
+                    {
+                        "%%prev": "%%user.id"
+                    },
+                    {
+                        "%%prev": {
+                            "%exists": false
+                        }
+                    }
+                ]
+            }
+        },
+        "userData": {
+            "fields": {
+                "email": {
+                    "read": {}
+                }
+            },
+            "other_fields": {
+                "read": {
+                    "owner_id": "%%user.id"
+                }
+            }
+        }
+    },
+    "other_fields": {
+        "read": {}
+    },
+    "write": {
+        "%or": [
+            {
+                "%%prevRoot.owner_id": "%%user.id"
+            },
+            {
+                "%%prevRoot": {
+                    "%exists": {
+                        "$numberInt": "0"
+                    }
+                }
+            }
+        ]
+    }
+}

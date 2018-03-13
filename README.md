@@ -6,7 +6,7 @@
 
 Refer to [Building a checkin app with MongoDB Stitch](https://www.mongodb.com/blog/post/building-a-checking-app-with-MongoDB-Stitch) for a more complete description of this app (together with instructions for configuring MongoDB Stitch to act as the backend).
 
-**Update: March 2018** – It's now possible to import the application's MongoDB Stitch code and configuration (so that you don't need to follow all of the UI steps to create it by hand). Refer to the `stitch_app` folder for details.
+**Update: March 2018** – It's now possible to import the application's backend MongoDB Stitch code and configuration (so that you don't need to follow all of the UI steps to create it by hand). Refer to the `stitch_app` folder for details.
 
 ## ReactJS client for FourSqaure and other checkin data
 

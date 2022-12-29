@@ -4,10 +4,10 @@
   "private": false,
   "homepage": "http://localhost:3000/react",
   "devDependencies": {
-    "react-scripts": "0.8.5"
+    "react-scripts": "5.0.1"
   },
   "dependencies": {
-    "mongodb-stitch": "^2.3.1",
+    "mongodb-stitch": "^3.18.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "d3-array": "1.0.1",

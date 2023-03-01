@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "http://localhost:3000/react",
   "devDependencies": {
-    "react-scripts": "0.8.5"
+    "react-scripts": "5.0.1"
   },
   "dependencies": {
     "mongodb-stitch": "^2.3.1",
